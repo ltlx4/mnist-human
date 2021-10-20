@@ -1,1 +1,1 @@
-# Mnist-by-human-School-Project
+# Mnist-by-human
