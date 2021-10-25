@@ -63,3 +63,28 @@
 ## Screen Design
 
 ## Scenarios
+### 1.
+    - new user visits our page
+    - user accepts our cookies and information regarding visit is stored
+    - user is asked to enter some information regarding him/herself
+    - afterwards users proceeds to program
+    - user is requested to enter a number against an image provided 
+    - he/she has to do this 5 times
+    - computer does the same
+    - program compares given input to image
+    - and compares the user input to the computer
+    - user receives feedback
+    - after a while, with other users, a comparison with other users is done
+    - feedback is sent
+    
+### 2.
+    - returning user opens the page
+    - afterwards users proceeds to program
+    - user is requested to enter a number against an image provided 
+    - he/she has to do this 5 times
+    - computer does the same
+    - program compares given input to image
+    - and compares the user input to the computer
+    - user receives feedback
+    - after a while, with other users, a comparison with other users is done
+    - feedback is sent 
