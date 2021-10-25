@@ -21,6 +21,9 @@
   - degree
 - the application should be able to recognize the user if he or she is a returning user
 - there should be a feedback system
+- the program will compare who guessed the correct answers better computer vs human
+- After doing 5 tries the page will show the user his score against the computer 
+- there will be a general comparison between all humans that have played including the mew user vs the computer
 
 
 ## Current processes/assets

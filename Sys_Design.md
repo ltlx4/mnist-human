@@ -63,7 +63,7 @@ members participating in  the project:
 - Visual studio code
 - python
 - draw.io
-- jungle
+- Django
 
 # Abstract domain model
 ## Basic operations: 
@@ -78,7 +78,7 @@ members participating in  the project:
 
 
 # Architectural plan
-* the web application is going to be buil using Django, a high-level Python web framework
+* the web application is going to be built using Django, a high-level Python web framework
 
 
 
