@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class User(models.Model):
     class Meta:
@@ -10,7 +11,7 @@ class User(models.Model):
     degree = models.CharField(max_length=150, blank=False)
     age = models.IntegerField(blank=False, null=False)
     region = models.CharField(max_length=20, blank=False, default='Europe') 
-    result = models.BooleanField(default=None)
+    accuracy = models.FloatField(default=0.0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 
