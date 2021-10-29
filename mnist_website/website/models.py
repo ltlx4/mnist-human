@@ -25,6 +25,7 @@ class UserImage(models.Model):
     class Meta:
         verbose_name = 'Participant Image'
         verbose_name_plural = 'Participants Images'
+        
     user = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     image = models.FileField(upload_to='images')
     human_guess = models.IntegerField()
