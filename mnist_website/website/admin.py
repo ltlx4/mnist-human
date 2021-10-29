@@ -1,5 +1,16 @@
 from django.contrib import admin
-from .models import User
+from .models import User, UserImage
 
-# Register your models here.
-admin.site.register(User)
+class UserImageAdmin(admin.StackedInline):
+    model = UserImage
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    inlines = [UserImageAdmin]
+ 
+    class Meta:
+       model = User
+ 
+@admin.register(UserImage)
+class UserImageAdmin(admin.ModelAdmin):
+    pass
