@@ -1,18 +1,11 @@
 from django.shortcuts import render 
-import csv
-# Create your views here.
+from keras.datasets import mnist
 
 
-def index(request):
-    return render(request, 'website/index.html')
-
-def test(request):
-    file = open('static/csv/mnist_test.csv')
-    csvreader = csv.reader(file)
-    # header = next(csvreader)
-    # print(header)
-    # rows = []
-    # for row in csvreader:
-    #     rows.append(row)
-    # return print(rows)
+def home(request):
+    (x_train, y_train), (x_test, y_test) = mnist.load_data()
+    print('X_train: ' + str(x_train.shape))
+    print('Y_train: ' + str(y_train.shape))
+    print('X_test:  '  + str(x_test.shape))
+    print('Y_test:  '  + str(y_test.shape))
     return render(request, 'website/index.html')
