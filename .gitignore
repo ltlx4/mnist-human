@@ -130,3 +130,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 env
+
+mnist_website/website/migrations/0001_initial.py
