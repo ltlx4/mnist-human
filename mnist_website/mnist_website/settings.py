@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
-    'rest_framework'
+    'rest_framework',
+    'geoip2'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,5 @@ STATIC_ROOT = 'static_root'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+GEOIP_PATH =os.path.join('geoip')
