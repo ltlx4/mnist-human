@@ -3,6 +3,13 @@ from django.db import models
 
 # Create your models here.
 class User(models.Model):
+
+
+    class TriesChoice(models.IntegerChoices):
+        LOW = 5, '5'
+        NORMAL = 10, '10'
+        HIGH = 15, '15'
+
     class Meta:
         verbose_name = 'Participant'
         verbose_name_plural = 'Participants'
@@ -10,7 +17,8 @@ class User(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
     degree = models.CharField(max_length=150, blank=False)
     age = models.IntegerField(blank=False, null=False)
-    region = models.CharField(max_length=20, blank=False, default='Europe') 
+    country = models.CharField(max_length=20, blank=False, default='Budapest') 
+    number_of_tries = models.IntegerField(choices=TriesChoice.choices, default=TriesChoice.NORMAL)
     accuracy = models.FloatField(default=0.0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -33,7 +41,7 @@ class UserImage(models.Model):
     correct_guess = models.BooleanField(default=False)
 
     def __str__(self):
-        return "{}'s guess ({}) ".format(str(self.user),str(self.id))
+        return "{}'s picture ({}) ".format(str(self.user),str(self.id))
 
     @property
     def check_correct(self):
