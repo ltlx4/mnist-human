@@ -5,11 +5,6 @@ from django.db import models
 class User(models.Model):
 
 
-    class TriesChoice(models.IntegerChoices):
-        LOW = 5, '5'
-        NORMAL = 10, '10'
-        HIGH = 15, '15'
-
     class Meta:
         verbose_name = 'Participant'
         verbose_name_plural = 'Participants'
@@ -18,7 +13,7 @@ class User(models.Model):
     degree = models.CharField(max_length=150, blank=False)
     age = models.IntegerField(blank=False, null=False)
     country = models.CharField(max_length=20, blank=False, default='Budapest') 
-    number_of_tries = models.IntegerField(choices=TriesChoice.choices, default=TriesChoice.NORMAL)
+    number_of_tries = models.IntegerField(default=10)
     accuracy = models.FloatField(default=0.0)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -26,8 +21,14 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+    def add_user_image(self, UserImage):
+        if self.userimage_set.count() >= 10:
+            raise Exception("Too many images on this account")
+        self.userimage_set.add(UserImage)
+
     # def save(self, *args, **kwargs):
     #     return super.save(*args, **kwargs)
+
 
 class UserImage(models.Model):
     class Meta:
