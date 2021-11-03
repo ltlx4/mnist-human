@@ -11,9 +11,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href=" {% static 'website/bootstrap/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href=" {% static 'website/font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href=" {% static 'website/css/form-elements.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href=" {% static 'website/css/style.css' %}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -48,7 +46,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Bootstrap Multi Step Registration Form Template</a>
+                <a class="navbar-brand" href="#">Humist</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="top-navbar-1">
@@ -80,58 +78,66 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text">
-                        <h1><strong>Bootstrap</strong> Multi Step Registration Form</h1>
+                        <h1>Computer VS Human preformance</h1>
                         <div class="description">
                         
                         </div>
                     </div>
                 </div>
+                                <!-- MultiStep Form -->
                 <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3 form-box">
-                        
-                            <form role="form" action="" method="post" class="registration-form">
-                            {% for i in userlist %}
-                                <fieldset>
-                                    <div class="form-top">
-                                        <div class="form-top-left">
-                                            <h3>Step {{forloop.counter}} / {{ userlist.count }}</h3>
-                                            <p>Tell us who you are:</p>
-                                        </div>
-                                        <div class="form-top-right">
-                                            <i class="fa fa-user"></i>
-                                        </div>
-                                    </div>
-                                    <div class="form-bottom">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-first-name">Name</label>
-                                            <input type="text" name="form-first-name" placeholder="{{form.name.label}}" class="form-first-name form-control" id="form-first-name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-last-name">Degree</label>
-                                            <input type="text" name="form-last-name" placeholder="{{form.degree.label}}" class="form-last-name form-control" id="form-last-name">
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="form-about-yourself"></label>
-                                            {{form.age}}
-                                        </div>
-                                        <button type="button" class="btn btn-next">Next</button>
-                                    </div>
-                                </fieldset>
-
-                            {% endfor %}
-                            </form>
-                        
+                    <div class="col-md-6 col-md-offset-3">
+                        <form id="msform">
+                            <!-- fieldsets -->
+                            <fieldset>
+                                <h2 class="fs-title">Basic Details</h2>
+                                <h3 class="fs-subtitle"></h3>
+                                <input type="text" id="spaces" name="name" placeholder="Your name...  "/>
+                                <input type="text" id="parkingPrice" name="degree" placeholder="Degree..."/>
+                                <input type="number" id="cashParkers" name="age" placeholder="Age.."/>
+                                <input type="button" name="next" class="next action-button" value="Next"/>
+                            </fieldset>
+                            <fieldset>
+                                <h2 class="fs-title">Event Operations</h2>
+                                <h3 class="fs-subtitle"></h3>
+                                <input type="number" name="eventCount" id="count" placeholder="Events per year"/>
+                                <input type="number" name="eventLabor" id="eventLabor" placeholder="Lot attendants per event"/>
+                                <input type="number" name="laborRate" id="laborRate" placeholder="Attendant hourly rate"/>
+                                <input type="number" name="eventHours" id="hours" placeholder="Labor hours per event"/>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" name="next" class="next action-button" value="Next"/>
+                            </fieldset>
+                            <fieldset>
+                                <h2 class="fs-title">Additional Information</h2>
+                                <h3 class="fs-subtitle">Fill in your credentials to get your ROI report</h3>
+                                <input type="text" id="email" name="email" placeholder="Email"/>
+                                <input type="text" id="full_name" name="name" placeholder="Name"/>
+                                <input type="text" name="company" id="company" placeholder="Copmany"/>
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
+                <!-- /.MultiStep Form -->
             </div>
         </div>
-        
+    </div>
 
     <!-- Javascript -->
-    <script src={% static 'website/js/jquery-1.11.1.min.js' %}></script>
-    <script src={% static 'website/bootstrap/js/bootstrap.min.js' %}></script>
-    <script src={% static 'website/js/jquery.backstretch.min.js' %}></script>
-    <script src={% static 'website/js/retina-1.1.0.min.js' %}></script>
+    {% comment %} <script src={% static 'website/js/jquery-1.11.1.min.js' %}></script> {% endcomment %}
+    <script
+			  src="https://code.jquery.com/jquery-3.6.0.js"
+			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" 
+            integrity="sha512-xq+0+dRhI6SZOh+lDnMJEju2p2YPINflJLcYrRAsIMaXnJi6/V3lppCMCYsB2MLeF2E93r+fVo0MioY90pNzpw==" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer"></script>
+            
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> {% endcomment %}
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> {% endcomment %}
     <script src={% static 'website/js/scripts.js' %}></script>
     <!--[if lt IE 10]>
         <script src={% static 'website/js/placeholder.js' %}></script>
