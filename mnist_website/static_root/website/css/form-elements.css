@@ -7,7 +7,7 @@ textarea.form-control {
     margin: 0;
     padding: 0 20px;
     vertical-align: middle;
-    background: #f8f8f8;
+    background: #f8f8f8;    
     border: 3px solid #ddd;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
@@ -46,6 +46,19 @@ input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-i
 textarea::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder { color: #888; }
 
 
+.typenumber {
+    height: 50px;
+    margin: 0;
+    padding: 0 20px;
+    vertical-align: middle;
+    background: #f8f8f8;
+    border: 3px solid #ddd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 50px;
+    color: #888;
+}
 
 button.btn {
 	height: 50px;
@@ -72,3 +85,5 @@ button.btn:active { outline: 0; opacity: 0.6; color: #fff; -moz-box-shadow: none
 button.btn:focus { outline: 0; opacity: 0.6; background: #19b9e7; color: #fff; }
 
 button.btn:active:focus, button.btn.active:focus { outline: 0; opacity: 0.6; background: #19b9e7; color: #fff; }
+
+
