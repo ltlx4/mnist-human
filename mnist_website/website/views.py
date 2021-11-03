@@ -1,23 +1,14 @@
-from django.shortcuts import render, redirect       
+from django.http.response import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.gis.geoip2 import GeoIP2
 from .utils import *
 from .forms import UserForm
 
 
 def home(request):
-    images, labels = zip(*shuffle_samples())
-    user_ip = '176.63.3.126'
-    g = GeoIP2()
-    country = g.city(user_ip)
+    context ={}
     
-    context ={
-        'form': UserForm(),
-        'country': country['country_code'],
-        'continent': country['continent_name'],
-        'images': images,
-        'labels': labels,
-        'userlist': {1,2,3}
-    }
     return render(request, 'website/index.html', context)    
 
 
@@ -31,3 +22,20 @@ def get_ip(request):
 
 
 
+def save_form_views(request):
+    if request.method != "POST":
+        return HttpResponseRedirect(reverse('/'))
+    else:
+        name = request.POST.get('name')
+        degree = request.POST.get('degree')
+        age = request.POST.get('age')
+        tries_number = request.POST.get('tries')
+        ip = get_ip(request)
+        locator = GeoIP2().city(ip)
+        country = locator['country_name']
+        city = locator['city']
+        continent = locator['continent_name']
+        
+        
+        
+        
