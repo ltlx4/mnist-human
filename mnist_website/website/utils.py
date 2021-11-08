@@ -1,19 +1,21 @@
 import numpy as np
 from PIL import Image
+import io
 import random
-from keras.datasets import mnist
+from mnist import MNIST
 
 
-def generate_sample(arr, arr2):
-    two_d = (np.reshape(arr, (28, 28)) * 255).astype(np.uint8)
+def get_sample(image_arr, label_arr):
+    two_d = (np.reshape(image_arr, (28, 28)) * 255).astype(np.uint8)
     img = Image.fromarray(two_d, 'L')
-    return img, arr2
+      
+    return (img, label_arr)
 
 
 def shuffle_samples():
-    (x_train, y_train), (x_test, y_test) = mnist.load_data()
-    images = x_train
-    labels = y_train
-    images_with_labels = list(zip(images,labels))
-    random.shuffle(images_with_labels)
-    return images_with_labels[:10]
+    mnist = MNIST('static/website/mnist')
+    random.shuffle(mnist)
+    image, label = mnist.load_testing()
+    
+    return image[:20],label[:20]
+
