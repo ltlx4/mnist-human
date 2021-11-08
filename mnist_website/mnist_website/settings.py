@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
     'rest_framework',
-    'geoip2'
+    'geoip2',
+    'crispy_forms',
+    'forms_fieldset',
 ]
 
 MIDDLEWARE = [
