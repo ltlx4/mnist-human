@@ -1,76 +1,5 @@
-{% load static %}
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mnist WebApp</title>
-
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href=" {% static 'website/css/style.css' %}">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="{% static 'website/ico/favicon.png' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'website/ico/apple-touch-icon-144-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'website/ico/apple-touch-icon-114-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'website/ico/apple-touch-icon-72-precomposed.png' %}">
-    <link rel="apple-touch-icon-precomposed" href="{% static 'website/ico/apple-touch-icon-57-precomposed.png' %}">
-
-
-
-
-</head>
-
-<body>
-
-
-    <!-- Top menu -->
-    <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Humist</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="top-navbar-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <span class="li-text">
-                            Put some text or
-                        </span> 
-                        <a href="#"><strong>links</strong></a> 
-                        <span class="li-text">
-                            here, or some icons: 
-                        </span> 
-                        <span class="li-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a> 
-                            <a href="#"><i class="fa fa-twitter"></i></a> 
-                            <a href="#"><i class="fa fa-envelope"></i></a> 
-                            <a href="#"><i class="fa fa-skype"></i></a>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+{% extends 'base.html' %}
+{% block content %}
     <!-- Top content -->
     <div class="top-content">
         
@@ -87,27 +16,30 @@
                                 <!-- MultiStep Form -->
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <form id="msform">
+                        <form id="msform" method="post" action ="{% url 'save_user_form' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                            {{inline_form.management_form}}
                             <!-- fieldsets -->
                             <fieldset>
                                 <h2 class="fs-title">Basic Details</h2>
                                 <h3 class="fs-subtitle"></h3>
-                                <input type="text" id="spaces" name="name" placeholder="Your name...  "/>
-                                <input type="text" id="parkingPrice" name="degree" placeholder="Degree..."/>
-                                <input type="number" id="cashParkers" name="age" placeholder="Age.."/>
+                                {{form.name}}
+                                {{form.degree}}
+                                {{form.age}}
                                 <input type="button" name="next" class="next action-button" value="Next"/>
                             </fieldset>
-                            <fieldset>
-                                <h2 class="fs-title">Event Operations</h2>
-                                <h3 class="fs-subtitle"></h3>
-                                <input type="number" name="eventCount" id="count" placeholder="Events per year"/>
-                                <input type="number" name="eventLabor" id="eventLabor" placeholder="Lot attendants per event"/>
-                                <input type="number" name="laborRate" id="laborRate" placeholder="Attendant hourly rate"/>
-                                <input type="number" name="eventHours" id="hours" placeholder="Labor hours per event"/>
+                            {% for form in inline_form %}
+                            <fieldset class="guess_fs">
+                                <h2 class="fs-title">What Is The Number?</h2>
+                                
+                                {{form}}
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="button" name="next" class="next action-button" value="Next"/>
+                                <input type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
                             </fieldset>
-                            <fieldset>
+                            {% endfor %}
+                            {% comment %} <fieldset>
                                 <h2 class="fs-title">Additional Information</h2>
                                 <h3 class="fs-subtitle">Fill in your credentials to get your ROI report</h3>
                                 <input type="text" id="email" name="email" placeholder="Email"/>
@@ -115,32 +47,11 @@
                                 <input type="text" name="company" id="company" placeholder="Copmany"/>
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
-                            </fieldset>
+                            </fieldset> {% endcomment %}
                         </form>
                     </div>
                 </div>
-                <!-- /.MultiStep Form -->
             </div>
         </div>
     </div>
-
-    <!-- Javascript -->
-    {% comment %} <script src={% static 'website/js/jquery-1.11.1.min.js' %}></script> {% endcomment %}
-    <script
-			  src="https://code.jquery.com/jquery-3.6.0.js"
-			  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-			  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js" 
-            integrity="sha512-xq+0+dRhI6SZOh+lDnMJEju2p2YPINflJLcYrRAsIMaXnJi6/V3lppCMCYsB2MLeF2E93r+fVo0MioY90pNzpw==" 
-            crossorigin="anonymous" 
-            referrerpolicy="no-referrer"></script>
-            
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> {% endcomment %}
-    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> {% endcomment %}
-    <script src={% static 'website/js/scripts.js' %}></script>
-    <!--[if lt IE 10]>
-        <script src={% static 'website/js/placeholder.js' %}></script>
-    <![endif]-->
-<body>
-</html>
+{% endblock content %}
