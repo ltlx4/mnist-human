@@ -6,4 +6,4 @@ For those who might not know what this database is, the MNIST database (Modified
 
 In our project, instead of testing it against processing systems, we will be testing it with humans to see how accurate they can be able to classify the images.
 
-For projectdocumentation click on the following link https://github.com/ltlx4/mnist-human.git
+For project documentation click on the following link https://github.com/ltlx4/mnist-human.git
