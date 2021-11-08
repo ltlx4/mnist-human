@@ -1,4 +1,4 @@
-MNIST by humans is a class project forked by Tawfiq ,Ryan and Sayin.
+MNIST by humans is a class project done by Tawfiq ,Ryan and Sayin.
 --------------------------------------------------------------------
 
 The platform we have developed gives the user an opportunity to test there visual skills by trying to classify a given image from a mnist database.
