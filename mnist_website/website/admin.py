@@ -7,14 +7,14 @@ class UserImageAdmin(admin.StackedInline):
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'created', 'updated', 'number_of_tries', 'number_of_guesses')
+    list_display = ('name', 'created', 'updated' , 'number_of_guesses')
     inlines = [UserImageAdmin]
  
     class Meta:
        model = User
 
     def number_of_guesses(UserImage, obj):
-        return obj.userimage_set.count()
+        return obj.images.count()
     
         
     
