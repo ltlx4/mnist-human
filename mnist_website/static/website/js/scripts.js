@@ -1,53 +1,6 @@
 
 $(document).ready(function() {
-$("#submitBtn").click(function() {
-	var spaces = $("#spaces").val();
-	var parkingPrice = $("#parkingPrice").val();
-	var cashParkers = $("#cashParkers").val();
-	var util = $("#util").val();
-	var count = $("#count").val();
-	var hours = $("#hours").val();
-	var laborRate = $("#laborRate").val();
-	var eventLabor = $("#eventLabor").val();
-	var vname = $("#full_name").val();
-	var company = $("#company").val();
-	var vemail = $("#email").val();
-	if (vname == "" && vemail == "") {
-	alert("Please fill out the form");
-	} else if (vname == "" && vemail !== "") {
-	alert("Name field is required");
-	} else if (vemail == "" && vname !== "") {
-	alert("Email field is required");
-	} else {
-	$.post(
-		"https://parkhub-bosh-poc.bubbleapps.io/version-test/api/1.1/wf/calc?", //Required URL of the page on server
-		{
-		// Data Sending With Request To Server
-		name: vname,
-		email: vemail,
-		company: company,
-		spaces: spaces,
-		parkingPrice: parkingPrice,
-		cashPay: cashParkers,
-		util: util,
-		laborRate: laborRate,
-		eventLabor: eventLabor,
-		eventCount: count,
-		eventHours: hours
-		},
-		function(response, status) {
-		// Required Callback Function
-		alert(
-			"*----Received Data----*nnResponse : " +
-			response +
-			"nnStatus : " +
-			status
-		); //"response" receives - whatever written in echo of above PHP script.
-		$("#form")[0].reset();
-		}
-	);
-	}
-});
+	
 });
 
 
@@ -105,6 +58,7 @@ $(".previous").click(function() {
 if (animating) return false;
 animating = true;
 
+
 current_fs = $(this).parent();
 previous_fs = $(this)
 	.parent()
@@ -145,3 +99,4 @@ current_fs.animate(
 	}
 );
 });
+
