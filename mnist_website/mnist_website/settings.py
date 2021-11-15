@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'geoip2',
     'crispy_forms',
     'forms_fieldset',
+    'django_htmx'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_htmx.middleware.HtmxMiddleware',
 ]
 
 ROOT_URLCONF = 'mnist_website.urls'
@@ -136,4 +138,4 @@ STATIC_ROOT = 'static_root'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-GEOIP_PATH =os.path.join('geoip')
+GEOIP_PATH =os.path.join('static/website/geoip')
