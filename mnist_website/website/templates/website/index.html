@@ -16,35 +16,49 @@
                                 <!-- MultiStep Form -->
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
-                        <form id="msform" method="post" action ="{% url 'save_user_form' %}" enctype="multipart/form-data">
-                        {% csrf_token %}
-
-                            {{inline_form.management_form}}
+                        <form id="msform"  hx-post"{% url 'user_form' %}">
                             <!-- fieldsets -->
-                            <fieldset>
-                                <h2 class="fs-title">Basic Details</h2>
-                                <h3 class="fs-subtitle"></h3>
-                                {{form.name}}
-                                {{form.degree}}
-                                {{form.age}}
-                                <input type="button" name="next" class="next action-button" value="Next"/>
+                            <fieldset class="guess_fs">
+                                <h2 class="fs-title">What Is The Number?</h2>
+                                {{ user_form.name }}
+                                {{ user_form.age }}
+                                {{ user_form.degree }}
+                                <input type="button" name="next" class="next action-button" value="Next"  hx-post="create/" hx-swap="beforeend" htmx-target="#ht-target"/>
+                                <input  type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
                             </fieldset>
-                            {% for form in inline_form %}
                             <fieldset class="guess_fs">
                                 <h2 class="fs-title">What Is The Number?</h2>
                                 
-                                {{form}}
+                                {{image_form.human_guess}}
                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                                <input type="button" name="next" class="next action-button" value="Next"/>
-                                {% if not forloop.first%}
-                                    <input type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
-                                {% endif %}
+                                <input type="button" name="next" class="next action-button" value="Next"  hx-post="create/" hx-swap="beforeend" htmx-target="#ht-target"/>
+                                <input  type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
                             </fieldset>
-                            {% endfor %}
-                        </form>
+                            <fieldset class="guess_fs">
+                                <h2 class="fs-title">What Is The Number?</h2>
+                                
+                                {{image_form.human_guess}}
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" name="next" class="next action-button" value="Next"  hx-post="create/" hx-swap="beforeend" htmx-target="#ht-target"/>
+                                <input  type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
+                            </fieldset>
+                            <fieldset class="guess_fs">
+                                <h2 class="fs-title">What Is The Number?</h2>
+                                
+                                {{image_form.human_guess}}
+                                <input type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" name="next" class="next action-button" value="Next"  hx-post="create/" hx-swap="beforeend" htmx-target="#ht-target"/>
+                                <input  type="submit" name="submit" id="submitBtn" class="submit action-button" value="Submit"/>
+                            </fieldset>
+
+                        </form> 
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
 {% endblock content %}
