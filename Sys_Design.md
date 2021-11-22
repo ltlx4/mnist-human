@@ -79,17 +79,34 @@ members participating in  the project:
 
 # Architectural plan
 * the web application is going to be built using Django, a high-level Python web framework
-
+* we will be hosting this app from github
+* the app when ,open will operate as follows
+* user accepts our cookies and information regarding visit is stored
+* user is asked to enter some information regarding him/herself
+* afterwards users proceeds to program
+* user is requested to enter a number against an image provided 
+* he/she has to do this 5 times
+* computer does the same
+* program compares given input to image
+* and compares the user input to the computer
+* user receives feedback
 
 
 # Implementation plan
 
 
 # Testing plan
-
+* we will conduct a series of tests until the required output is reached
+* a table log to show what was done will be implimented
+* we took the test using the known terms, testing the normal conditions, extreme and exceptional
+* we noted down the required conditions we want to have
+* when we had an error we fixed it so that the program ran smoothly
+* we will have a log system to document every test and change done
 
 # Install plan
-
+we will put all the files on our server,and install the necessary enviorement, then our user can reach this program via our website
 
 # Maintenance plan
- 
+* our goal is to have a program that will run soomthly
+* unless required to be changed by the client, the program will have no updates or any changes
+* in this ase of updates or changes, there will need to be a planning and a documation of the new requirements
