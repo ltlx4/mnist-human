@@ -93,7 +93,8 @@ members participating in  the project:
 
 
 # Implementation plan
-
+* we would want our web page to be hosted from a server
+* administration changes and up keep will be done using django
 
 # Testing plan
 * we will conduct a series of tests until the required output is reached
