@@ -42,4 +42,7 @@ class UserImageForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['human_guess'].widget.attrs.update({'type': 'number', 'name': 'human_guess', 'placeholder': 'Your best guess...!'})
         self.fields['human_guess'].required = False
+<<<<<<< HEAD
         self.fields['human_guess'].widget.attrs['autofocus'] = 'on'
+=======
+>>>>>>> 166af81a11dae2ae1186b88f8a5e2ab57c5962c1
