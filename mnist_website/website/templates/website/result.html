@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="participant">
+            <h2>Results</h2>
+            <form hx-post="/userimages">
+                <div class="row justify-content-center">
+                  <div class="col-md-3">
+                    {% if username %}
+                      <input type="text" class="form-control" name="username" value="{{username}}">
+                    {% else %}
+                      <input type="text" class="form-control" name="username"placeholder="Username">
+                    {% endif %}
+                  </div>
+                  <div class="col-md-2">
+                    {% if username %}
+                      <input type="text" name="age" class="form-control" value="{{age}}">
+                    {% else %}
+                      <input type="number" name="age" class="form-control" placeholder="age">
+                    {% endif %}
+                  </div>
+                  <button class="btn search" type="submit">Search</button>
+                </div>
+              </form>
+        </div>
+        <div class="guesses">
+
+        </div>
+    </div>
+
+{% endblock content %}

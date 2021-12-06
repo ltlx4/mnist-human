@@ -1,0 +1,23 @@
+
+<div class="col-lg-3  text-center">
+    <div class="box">
+        <img src="data:image/png;base64, {{image.image}}" alt="">
+        <div class="box-title">
+            <h3 class="mt-3">Try #: {{forloop.counter}}</h3>
+        </div>
+        <div class="box-text">
+            <h4><span>Real value: {{ image.real_value}}</span></h4>
+            <h4 class="mb-3"><span>Your guess: {{ image.human_guess}}</span></h4>
+            {% if image.correct_guess %}
+                <a href="#" class="btn-success btn-lg">
+                    True <i class="bi bi-check-circle"></i>
+                </a>
+            {% else %}
+            <a href="#" class="btn-danger btn-lg">
+                False <i class="bi bi-x-circle"></i>
+            </a>
+            {% endif %}
+        </div>
+     </div>
+</div>	 
+
