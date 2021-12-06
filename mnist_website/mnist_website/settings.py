@@ -38,11 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website.apps.WebsiteConfig',
-    'rest_framework',
     'geoip2',
-    'crispy_forms',
-    'forms_fieldset',
-    'django_htmx'
+    'django_htmx',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mnist_website.urls'
+
+LOGIN_REDIRECT_URL = '/'
 
 TEMPLATES = [
     {
