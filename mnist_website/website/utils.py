@@ -31,6 +31,7 @@ def shuffle_samples():
     random.shuffle(samples_list)
     image, label = zip(*samples_list)
     return image[0],label[0]
+<<<<<<< HEAD
     
 
 def username_exists(username):
@@ -48,4 +49,22 @@ def get_ip(request):
     else:
         ip = request.META.get('REMOTE_ADDR')
     return ip
+=======
+    
 
+def username_exists(username):
+    return User.objects.filter(username=username).exists()
+
+
+def correct_guess(val1, val2):
+    return val1 == val2
+    
+>>>>>>> 166af81a11dae2ae1186b88f8a5e2ab57c5962c1
+
+def get_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
