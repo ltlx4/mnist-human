@@ -93,6 +93,10 @@ members participating in  the project:
 
 
 # Implementation plan
+* we would want our web page to be hosted from a server
+* administration changes and up keep will be done using django
+* by assigning small task to each other we were able to bring out the dream system
+* using trello, we will have the work flow for everyone set
 
 
 # Testing plan

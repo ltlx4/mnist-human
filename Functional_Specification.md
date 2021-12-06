@@ -62,6 +62,14 @@
 
 ## Screen Design
 
+![MNIST diagram use case.drawio.png](https://github.com/ltlx4/mnist-human/blob/78f495112efd9eec1d9d2747f403940396299acc/diagrams/2.jpeg)
+
+![MNIST diagram use case.drawio.png](https://github.com/ltlx4/mnist-human/blob/78f495112efd9eec1d9d2747f403940396299acc/diagrams/1.jpeg)
+
+![MNIST diagram use case.drawio.png](https://github.com/ltlx4/mnist-human/blob/78f495112efd9eec1d9d2747f403940396299acc/diagrams/3.jpeg)
+
+![MNIST diagram use case.drawio.png](https://github.com/ltlx4/mnist-human/blob/78f495112efd9eec1d9d2747f403940396299acc/diagrams/4.jpeg)
+
 ## Scenarios
 ### 1.
     - new user visits our page
