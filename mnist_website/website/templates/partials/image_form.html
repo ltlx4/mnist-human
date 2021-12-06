@@ -1,0 +1,23 @@
+{% load widget_tweaks %}
+
+<div class="col-lg-3  text-center">
+    <div class="box">
+        <form method="post" action="{% url 'add-image' %}">
+            {% csrf_token %}
+            <img src="data:image/png;base64, {{ image }}" alt="">
+            <input type="hidden" name="image" value="{{image}}">
+            <div class="box-title">
+                <h3 class="mt-1">What's the number?</h3>
+            </div>
+            <div class="box-text ">
+                <h4 class="mb-3"><span>Your guess: {% render_field form.human_guess autofocus="autofocus"%}</span></h4>
+                <input type="hidden" name="real_value" value="{{label}}"></input>
+                <input type="submit" value="Submit" class="btn-info btn-lg ">
+
+                </input>
+            </div>
+        </form>
+     </div>
+</div>	 
+
+{% include 'partials/add_image_card.html' %}

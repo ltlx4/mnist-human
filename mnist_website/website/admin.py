@@ -24,7 +24,7 @@ class UserImageAdmin(admin.ModelAdmin):
     
     class Meta:
         model = UserImage
-    list_display = ('user_label', 'correct_guess')
+    list_display = ('id', 'user_label', 'correct_guess')
     
     def user_label(UserImage, obj):
         return str(obj)

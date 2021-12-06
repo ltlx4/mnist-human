@@ -1,0 +1,33 @@
+<div class="card">
+
+    <h5 class="card-header">User found!</h5>
+  
+    <div class="card-body">
+  
+      <h5 class="card-title">Hello user: <span>{{user}}</span> </h5>
+      <h5>Welcome to your images!</h5>
+  
+      {% if images %}
+      <h3 class="mt-4">You have {{images.count}} images</h3>
+          
+        <div class="row">
+          {% for image in images %}
+            {% include 'website/userimage_detail.html' %} 
+            {% if forloop.last and forloop.counter <= 30 %}
+              {% include 'partials/add_image_card.html' %}
+            {% endif %}
+          {% endfor %}
+        
+        </div>
+      {% else %}
+  
+  
+      <h3>You have 0 images</h3>  
+      <div class="row" id="first-image">
+        <a hx-get="{% url 'image-form' %}" hx-target="#first-image" class="btn text-center">Add one?</a>
+      </div>  
+      
+      {% endif %}
+      
+    </div>
+  </div>
